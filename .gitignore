@@ -197,4 +197,4 @@ replay_pid*
 
 # SQLITE DATABASE
 
-*.sqlite
+*.sqlite3
