@@ -74,7 +74,7 @@ class MagicalOven:
         MagicalOven: The oven instance (for method chaining).
     """
 
-    self.ingredients = self.ingredients.append(ingredient)
+    self.ingredients.append(ingredient)
 
     return self
   
@@ -123,12 +123,16 @@ class MagicalOven:
     # since we only know what happens at -100, 150 and 5000 we define only those values
     # instead of using intervals
 
+    print(self.temperature)
+
     if self.temperature == -100 and all(ingredient in self.ingredients for ingredient in snow_ingredients):
       return "snow"
     elif self.temperature == 150 and all(ingredient in self.ingredients for ingredient in pizza_ingredients):
       return "pizza"
     elif self.temperature == 5000 and all(ingredient in self.ingredients for ingredient in gold_ingredients):
       return "gold"
+    else:
+      return "default..."
 
 
   
@@ -143,7 +147,7 @@ def alchemy_combine(oven, ingredients, temperature):
 
   if temperature < 0:
     oven.freeze()
-  elif temperature >= 100:
+  elif temperature >= 100 and temperature <= 500: # added condition because we need a way to reach wait
     oven.boil()
   else:
     oven.wait()
