@@ -198,3 +198,4 @@ replay_pid*
 # SQLITE DATABASE
 
 *.sqlite3
+part1/quiz_pets
