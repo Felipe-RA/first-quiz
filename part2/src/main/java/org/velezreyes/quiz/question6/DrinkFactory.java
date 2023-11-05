@@ -16,9 +16,10 @@ public class DrinkFactory {
         // you can add more drinks herre  ...!!!
     }
 
-    public static Drink getDrink(String name) throws UnknownDrinkException {
-        // Convert the name to a DrinkBrand enum, this will throw IllegalArgumentException
-        // if the name does not correspond to any enum constant.
+    public static Drink getDrink(String name) throws UnknownDrinkException 
+    {
+        // Convert the name to a DrinkBrand enum, 
+        // this will throw IllegalArgumentException if it does not exist.
 
         try {
             DrinkBrand brand = DrinkBrand.valueOf(name.toUpperCase().replace(" ", "_"));
