@@ -93,4 +93,30 @@ public class Question6Test {
       vm.pressButton("BessieBooze");
     });
   }
+
+  @Test
+  public void testInsertQuarter() {
+      VendingMachineImpl vm = (VendingMachineImpl) VendingMachineImpl.getInstance();
+      vm.reset();
+      vm.insertQuarter();
+      assertEquals(25, vm.getMoneyInserted());
+  }
+
+  @Test
+  public void testGetMoneyInserted() {
+      VendingMachineImpl vm = (VendingMachineImpl) VendingMachineImpl.getInstance();
+      vm.reset();
+      vm.insertQuarter();
+      vm.insertQuarter(); // Inserting two quarters for the test
+      assertEquals(50, vm.getMoneyInserted());
+  }
+
+  @Test
+  public void testReset() {
+    VendingMachineImpl vm = (VendingMachineImpl) VendingMachineImpl.getInstance();
+    vm.insertQuarter();
+    vm.reset();
+    assertEquals(0, vm.getMoneyInserted());
+}
+
 }
