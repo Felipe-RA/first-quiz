@@ -30,6 +30,24 @@ public class DrinkFactory {
         }
     }
 
+    public static int getPrice(String name) throws UnknownDrinkException {
+        try {
+            DrinkBrand brand = DrinkBrand.valueOf(name.toUpperCase().replace(" ", "_"));
+            // Logic to determine the price of the drink
+            switch (brand) {
+                case SCOTTCOLA:
+                    return 75; // price in cents
+                case KARENTEA:
+                    return 100; // price in cents
+                default:
+                    // this will never happen
+                    throw new UnknownDrinkException("The price for " + name + " is unknown.");
+            }
+        } catch (IllegalArgumentException e) {
+            throw new UnknownDrinkException("The price for " + name + " is unknown.");
+        }
+    }
+    
 
 
 
